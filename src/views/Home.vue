@@ -1,13 +1,8 @@
 <template>
   <section class="container">
-   
     <Form v-if="!this.showUserDetail" v-slot="{ handleSubmit, values, errors }">
-       <div class="current-steps mt-3" :style="'width:'+width+'%;float:left'">
-       
-      </div>
-      <div class="step-card ">
-     
-        <div class="step-body mt-3">
+      <div class="step-card">
+        <div class="step-body">
           <component
             :is="this.stepsList[this.currentStep]"
             :errors="errors"
@@ -15,6 +10,10 @@
         </div>
 
         <div class="step-footer">
+          <div class="current-steps">
+            <b>{{ this.currentStep + 1 }}</b> / {{ this.stepsList.length }}
+          </div>
+
           <button
             @click="isLastStep ? finalSubmit() : handleSubmit($event, toNext)"
             :disabled="
@@ -62,7 +61,6 @@ export default {
   data() {
     return {
       currentStep: 0,
-      width: 33,
       stepsList: ['FormOne', 'FormTwo','FormThree'],
       showUserDetail: false,
     }
@@ -94,12 +92,10 @@ export default {
       this.showUserDetail = true
     },
     toPrevious() {
-      this.currentStep--;
-      this.width -= 33;
+      this.currentStep--
     },
     toNext() {
       this.currentStep++
-      this.width += 33;
     },
     toRestart() {
       this.currentStep = 0
@@ -123,16 +119,18 @@ export default {
   align-content: center;
   justify-items: center;
   height: 100vh;
+  background-color: #2cb294
 }
 
 .step-card {
   padding: 20px;
-  margin: 80px auto;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
   position: relative;
   max-width: 375px;
   border: solid 2px #dddddd;
+  background-color: #fff;
 }
 
 .step-title {
@@ -143,7 +141,7 @@ export default {
 
 .step-body {
   margin-bottom: 20px;
-  min-height: 350px;
+  min-height: auto;
 }
 
 .step-footer {
@@ -170,12 +168,12 @@ button:disabled {
 }
 
 button.btn-primary {
-  background-color: #064faf;
+  background-color: #2cb294;
   color: #fff;
 }
 
 button.btn-secondary {
-  color: #064faf;
+  color: #2cb294;
 }
 
 button.btn-next {
@@ -187,12 +185,15 @@ button.btn-back {
 }
 
 .current-steps {
-  padding: 5px;
-  border-radius: 15px;
-  background-color: #064faf;
+  padding: 2px 10px;
+  border-radius: 7px;
+  background-color: #2cb294;
   margin-right: 10px;
   margin-left: auto;
-  order: 2;
+  order: 3;
+  color: white;
+  width: 58%;
+  text-align: center;
 }
 
 /* From Input & Error */
@@ -228,8 +229,5 @@ button.btn-back {
 
 .form-input .input-control.has-error {
   border-color: #ff2626;
-}
-.mt-3{
-  margin-top: 12px;
 }
 </style>

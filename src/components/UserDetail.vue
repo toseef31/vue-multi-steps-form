@@ -1,6 +1,7 @@
 <template>
   <div class="user-detail">
     <div class="user-info">
+      <h4 class="mb-4">Output</h4>
       <div><p>Name: <span class="fs-4">{{ user.firstName }} {{ user.lastName }}</span></p></div>
       <div><p>Middle Name: <span class="fs-4">{{ user.middleName }}</span></p></div>
       <div><p>Date of Birth: <span class="fs-4">{{ user.dob }}</span></p></div>
@@ -37,7 +38,7 @@ export default {
   font-weight: bold;
 }
 .user-detail{
-  height: 100%;
+  height: 40%;
   align-items: center;
 }
 .user-info {
@@ -52,27 +53,28 @@ export default {
   margin: 50px auto;
 }
 
-@media (min-width: 768px) {
-  .user-detail {
-    display: grid;
-  }
-  .header {
-    text-align: center;
-    grid-column-start: 1;
-    grid-column-end: 3;
-  }
-  .footer {
-    grid-column-start: 1;
-    grid-column-end: 3;
-  }
-  .user-info {
-    padding: 50px;
-    margin: auto;
-    background: aliceblue;
-  }
-  .fs-4{
-    font-size: 14px;
-  }
+.user-info {
+  padding: 50px;
+  margin: auto;
+  background: aliceblue;
+}
+ .user-detail {
+  display: grid;
+}
+.header {
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.footer {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
 
+.fs-4{
+  font-size: 14px;
+}
+.mb-4{
+margin-bottom: 15px;
 }
 </style>

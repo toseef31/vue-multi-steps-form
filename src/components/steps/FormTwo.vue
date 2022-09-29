@@ -1,7 +1,7 @@
 <template>
   
   <div class="form-input">
-    <label for="middle-name">Middle Name</label>
+    <label for="middle-name">Middle Name <small>(Optional)</small></label>
     <Field
       :class="inputClassObject('middleName')"
       type="text"
