@@ -127,7 +127,7 @@ export default {
 
 .step-card {
   padding: 20px;
-  margin: 40px auto;
+  margin: 80px auto;
   display: flex;
   flex-direction: column;
   position: relative;
