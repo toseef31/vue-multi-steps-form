@@ -2,6 +2,7 @@
   <div class="user-detail">
     <div class="user-info">
       <h4 class="mb-4">Output</h4>
+      <p class="msg">Form submit successfully !!</p>
       <div><p>Name: <span class="fs-4">{{ user.firstName }} {{ user.lastName }}</span></p></div>
       <div><p>Middle Name: <span class="fs-4">{{ user.middleName }}</span></p></div>
       <div><p>Date of Birth: <span class="fs-4">{{ user.dob }}</span></p></div>
@@ -70,11 +71,13 @@ export default {
   grid-column-start: 1;
   grid-column-end: 3;
 }
-
 .fs-4{
   font-size: 14px;
 }
 .mb-4{
-margin-bottom: 15px;
+  margin-bottom: 15px;
+}
+.msg{
+  color:green;
 }
 </style>
